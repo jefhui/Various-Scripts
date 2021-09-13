@@ -5,11 +5,11 @@ from geopy.geocoders import Nominatim
 
 geolocator = Nominatim(user_agent = "geoapiExercises")
 
-def locator(x):
+def country_locator(x):
         try:
             location = geolocator.geocode(x, language='en', exactly_one=False)
             if len(location)==1 :
-                return location.address.split(sep=",")[-1].strip()
+                return location[0].address.split(sep=",")[-1].strip()
             else:
                 result_list = []
                 for result in location:
